@@ -17,7 +17,11 @@
 試合が終わった後や、ゲームを終えた後、その結果を記入する
 
 ## 設計書
-まだ作れてません
+設計書類
+https://docs.google.com/spreadsheets/d/1hSqxfkfP2adsUrilFT50b0RxkjjVVuc2eT2u0LJ3M3E/edit#gid=467064783
+
+画面設計
+https://1drv.ms/p/s!Ajz_PNBwqwzQwTg5uXta8ljf8mZV?e=UnLT5a
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/11-UWWMoCRXAdIcFaluaLlqlbBrJWjFGipO09Fh2PRJ4/edit#gid=0
