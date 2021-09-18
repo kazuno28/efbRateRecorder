@@ -1,0 +1,33 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h4>
+        <span class="text-white bg-secondary">レート編集</span>
+      </h4>
+      <!--エラーメッセージ-->
+      <%= form_with model:@rate_graph, local:true do |f| %>
+        <% if @rate_graph.errors.any? %>
+          <%= @rate_graph.errors.count %>errors prohibited this obj from being saved:
+            <ul><%= @rate_graph.errors.full_massages.each do |message| %>
+              <li><%= message %></li>
+            </ul>
+          <% end %>
+        <% end %>
+        <!--編集フォーム-->
+        <div class="form-group">
+          <%= f.label :before_rate, "試合前レート" %>
+          <%= f.text_field :before_rate, autofocus:true, id:"inputBeforeRate" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :after_rate, "試合後レート"%>
+          <%= f.text_field :after_rate, autofocus:true, id:"inputAfterRate" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "変更を保存", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+      <%= link_to "戻る", rate_graphs_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

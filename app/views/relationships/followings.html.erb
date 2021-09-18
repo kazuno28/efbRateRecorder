@@ -1,0 +1,10 @@
+
+<h3>
+  <span class="text-white bg-secondary">フォロー一覧</span>
+</h3>
+<!--フォロー一覧表-->
+<% if @users.exists? %>
+  <%= render '/user/index', users: @users %>
+<% else %>
+  <p class="text-center font-weight-bold">ユーザーはいません。</p>
+<% end %>  

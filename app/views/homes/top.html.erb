@@ -1,1 +1,20 @@
-<h1>こちらはTOPページです。</h1>
+<p id="notice"></p>
+<div class="container">
+    <div class="jumbotron mx-auto text-center">
+        <h1 class="top-title">efbRateRecorder</h1>
+    </div>
+  <div class="row">
+    <div class="mx-auto">
+      <p>Welcom to efbRateRecorder!</p>
+    </div>
+  </div>
+    <div class="btn-wrapper col-5 mx-auto">
+      <!--新規登録＆ログイン-->
+      <div class="row">
+          <%= link_to 'ログイン', new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+      </div>
+      <div class="row">
+          <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+      </div>
+    </div>
+</div>

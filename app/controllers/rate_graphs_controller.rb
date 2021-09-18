@@ -1,0 +1,2 @@
+class RateGraphsController < ApplicationController
+end
