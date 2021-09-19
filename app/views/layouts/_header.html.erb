@@ -7,7 +7,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-        <!--ヘッダーリンク-->  
+        <!--ヘッダーリンク-->
         <% if user_signed_in? %>
           <li><%= link_to 'マイページ',user_path(current_user), class: 'fas fa-users nav-link text-warning' %></li>
           <li><%= link_to 'ユーザー一覧', users_path, class: 'fas fa-users nav-link text-warning' %></li>

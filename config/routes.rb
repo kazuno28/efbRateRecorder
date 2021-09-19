@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   #rate_graphs
   resources :rate_graphs, only: [:index, :create, :edit, :update]
 
+  #search
+  get '/search', to: 'searches#search'
+
 end

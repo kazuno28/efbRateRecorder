@@ -4,10 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #レートグラフとのリレーション
   has_many :rate_graphs
+    #いいね・レートグラフコメントとのリレーション
+    has_many :favorites, dependent: :destroy
+    has_many :book_comments, dependent: :destroy
+
+  #ActiveStorage
   has_one_attached :image
   validate :image_type
 
+  #ユーザー名バリデーション
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
 
   # 自分がフォローされる（被フォロー）側の関係性
@@ -32,6 +39,19 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+
+  #完全一致, 前方一致, 後方一致, 部分一致の検索手法
+  def self.search_for(content, method)
+    if method == 'perfect'
+      User.where(name: content)
+    elsif method == 'forward'
+      User.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      User.where('name LIKE ?', '%' + content)
+    else
+      User.where('name LIKE ?', '%' + content + '%')
+    end
   end
 
   private

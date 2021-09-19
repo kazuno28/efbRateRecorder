@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update]
 
   def index
     @users = User.page(params[:page]).reverse_order
@@ -6,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @rate_graphs = @user.rate_graphs.map.with_index{|rg, idx| [idx+1, rg.after_rate]}
+    @rate_graph = RateGraph.new
   end
 
   def edit

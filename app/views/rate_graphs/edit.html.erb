@@ -5,7 +5,7 @@
       <h4>
         <span class="text-white bg-secondary">レート編集</span>
       </h4>
-      <!--エラーメッセージ-->
+      <!--エラーメッセージ&編集フォーム-->
       <%= form_with model:@rate_graph, local:true do |f| %>
         <% if @rate_graph.errors.any? %>
           <%= @rate_graph.errors.count %>errors prohibited this obj from being saved:
@@ -14,7 +14,6 @@
             </ul>
           <% end %>
         <% end %>
-        <!--編集フォーム-->
         <div class="form-group">
           <%= f.label :before_rate, "試合前レート" %>
           <%= f.text_field :before_rate, autofocus:true, id:"inputBeforeRate" %>

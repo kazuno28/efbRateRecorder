@@ -1,0 +1,2 @@
+module RateGraphCommentsHelper
+end

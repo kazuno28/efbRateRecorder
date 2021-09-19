@@ -5,7 +5,7 @@
       <h4>
         <span class="text-white bg-secondary">プロフィール編集</span>
       </h4>
-      <!--エラーメッセージ-->
+      <!--エラーメッセージ&編集フォーム-->
       <%= form_with model:@user, local:true do |f| %>
         <% if @user.errors.any? %>
           <%= @user.errors.count %>errors prohibited this obj from being saved:
@@ -14,7 +14,6 @@
             </ul>
           <% end %>
         <% end %>
-        <!--編集-->
         <div class="form-group">
           <%= f.label :image, "プロフィール画像"%>
           <%= f.file_field :image, placeholder: "プロフィール画像" %>
