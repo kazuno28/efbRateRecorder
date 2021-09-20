@@ -1,13 +1,12 @@
-<p id="notice"></p>
-<div class="container px-5 px-sm-0">
+<div class="container">
   <div class="row">
-    <div class="mx-auto">
+    <div class="col-md-8 offset-md-1">
       <h3>
         <span class="text-white bg-secondary">フォロワー一覧</span>
       </h3>
       <!--フォロワー一覧表-->
       <% if @users.exists? %>
-        <%= render '/user/index', users: @users %>
+        <%= render "users/index", users: @users %>
       <% else %>
         <p class="text-center font-weight-bold">ユーザーはいません。</p>
       <% end %>

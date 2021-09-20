@@ -1,7 +1,6 @@
-<p id="notice"></p>
-<div class="container px-5 px-sm-0">
+<div class="container">
   <div class="row">
-    <div class="mx-auto">
+    <div class="col-md-8 offset-md-1">
       <h4>
         <span class="text-white bg-secondary">レート変動一覧</span>
       </h4>
@@ -9,19 +8,21 @@
       <% if @rate_graphs.exists? %>
         <table class='table table-hover table-inverse'>
           <thead class="text-white bg-secondary">
-            <th>試合No.</th>
-            <th>試合日時</th>
-            <th>試合前</th>
-            <th>試合後</th>
-            <th></th>
+            <th class="text-center">試合No.</th>
+            <th class="text-center">試合日時</th>
+            <th class="text-center">試合前</th>
+            <th class="text-center">試合後</th>
+            <th class="text-center"></th>
           </thead>
           <tbody>
-            <% rate_graphs.each do |rate_graph| %>
-              <tr><%= rate_graph.id %></tr>
-              <tr><%= rate_graph.create_at.strftime("%m月%d日 %H:%M") %></tr>
-              <tr><%= rate_graph.before_rate %></tr>
-              <tr><%= rate_graph.after_rate %></tr>
-              <tr><%= link_to "編集する", edit_rate_graph_path(), class:"btn btn-success" %></tr>
+            <% @rate_graphs.each do |rate_graph| %>
+            <tr>
+              <td class="text-center"><%= rate_graph.id %></td>
+              <td class="text-center"><%= rate_graph.created_at.strftime("%m/%d %H:%M") %></td>
+              <td class="text-center"><%= rate_graph.before_rate %></td>
+              <td class="text-center"><%= rate_graph.after_rate %></td>
+              <td class="text-center"><%= link_to "編集する", edit_rate_graph_path(rate_graph), class: "btn btn-success" %></td>
+            </tr>
             <% end %>
           </tbody>
         </table>

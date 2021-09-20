@@ -8,6 +8,7 @@ class RateGraphsController < ApplicationController
 
   def create
     @rate_graph = RateGraph.new(rate_graph_params)
+    @rate_graph.user_id = current_user.id
     if @rate_graph.save
       redirect_to user_path(current_user), notice: "正常に入力されました。"
     else
