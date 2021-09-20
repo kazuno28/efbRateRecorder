@@ -3,7 +3,7 @@ class RateGraphsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
 
   def index
-    @rate_graphs = RateGraph.all
+    @rate_graphs = RateGraph.page(params[:page]).reverse_order
   end
 
   def create

@@ -2,14 +2,12 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class='mx-auto'>
+      <h5><span class="text-white bg-secondary">検索ワード</span> "<%= @content %>"</h5>
       <h4>
         <span class="text-white bg-secondary">検索結果</span>
       </h4>
       <!--検索結果-->
-        <% if @model == 'user' %>
-          <%= @content %>
-          <%= render 'users/index', users: @records %>
-        <% end %>
+      <%= render 'users/index', users: @records %>
     </div>
   </div>
 </div>
