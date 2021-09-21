@@ -1,16 +1,16 @@
 <p id="notice"></p>
 <div class="container">
   <div class="row">
-    <h3 class="text-white bg-secondary">Log in</h3>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+      <h3 class="text-white bg-secondary">Log in</h3>
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
         <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
 
         <div class="field">
-          <%= f.label :password, "パスワード" %><br />
+          <%= f.label :password %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
 

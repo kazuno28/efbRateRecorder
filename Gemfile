@@ -79,3 +79,6 @@ gem 'kaminari','~> 1.2.1'
 
 gem "chartkick"
 
+gem 'devise-i18n'
+
+

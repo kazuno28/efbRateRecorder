@@ -4,6 +4,10 @@
 
 .jumbotron{
   background-image: image-url("PF-top.jpg");
+  background-size: cover;
+  max-height: 350px;
+  max-width: 480px;
+  margin: auto;
 }
 
 .top-title{
