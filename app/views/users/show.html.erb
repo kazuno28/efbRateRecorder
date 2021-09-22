@@ -50,6 +50,16 @@
         <!--レート変動一覧　リンク-->
         <p>データを編集したい場合は、<%= link_to "レート変動一覧", rate_graphs_path %>から編集してください。</p>
       <% end %>
+      <!--コメント表-->
+      <table>
+        <%= render 'rate_graph_comment/index', user: @user %>
+      </table>
+      <%= paginate @rate_graph_comments %>
+      <!--コメントフォーム-->
+      <%= form_with model:[@user,@rate_graph_comment] do |f| %>
+        <%= f.text_area :comment, size:"90x5" %>
+        <%= f.submit '送信'%>
+      <% end %>
     </div>
   </div>
 </div>

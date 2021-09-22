@@ -1,0 +1,15 @@
+<% user.rate_graph_comments.each do |rate_graph_comment| %>
+  <% rate_graph_comment_user = rate_graph_comment.user %>
+  <tr>
+  	<td>
+  		<%= link_to user_path(rate_graph_comment_user), class: "user_#{rate_graph_comment_user.id}" do %>
+    		<%= image_tag rate_graph_comment_user.image.variant(resize: "50x50") %><br>
+    		<%= rate_graph_comment_user.name %>
+  		<% end %>
+  	</td>
+  	<td><%= rate_graph_comment.comment %></td>
+  	<% if current_user == rate_graph_comment_user %>
+    	<td><%= link_to 'Destroy', user_rate_graph_comment_path(rate_graph_comment.user_id, rate_graph_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
+  	<% end %>
+  </tr>
+<% end %>
