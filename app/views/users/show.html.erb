@@ -51,13 +51,13 @@
         <p>データを編集したい場合は、<%= link_to "レート変動一覧", rate_graphs_path %>から編集してください。</p>
       <% end %>
       <!--コメント表-->
-      <table>
-        <%= render 'rate_graph_comment/index', user: @user %>
-      </table>
+        <table id="rate_graph_comments_<%= @user.id %>">
+            <%= render 'rate_graph_comments/index', user: @user, rate_graph_comments: @rate_graph_comments %>
+        </table>
       <%= paginate @rate_graph_comments %>
       <!--コメントフォーム-->
-      <%= form_with model:[@user,@rate_graph_comment] do |f| %>
-        <%= f.text_area :comment, size:"90x5" %>
+      <%= form_with model:[@rate_graph_comment], url: user_rate_graph_comments_path(@user) do |f| %>
+        <%= f.text_area :comment, size:"60x5" %>
         <%= f.submit '送信'%>
       <% end %>
     </div>

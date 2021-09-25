@@ -8,11 +8,11 @@ class User < ApplicationRecord
   has_many :rate_graphs
     #いいね・レートグラフコメントとのリレーション
     has_many :favorites, dependent: :destroy
-    has_many :book_comments, dependent: :destroy
+    has_many :rate_graph_comments, dependent: :destroy
 
   #ActiveStorage
   has_one_attached :image
-  validate :image_type
+  #validate :image_type
 
   #ユーザー名バリデーション
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
@@ -57,7 +57,7 @@ class User < ApplicationRecord
   private
 
   def image_type
-    if !image.blob.content_type.in?(%('image/jpeg image/png image/jpg'))
+    if !image.blob.content_type.in?(%('images/jpeg images/png images/jpg'))
       image.purge
       errors.add(:image, 'はJPEGまたはPNG、JPG形式を選択してアップロードしてください')
     end

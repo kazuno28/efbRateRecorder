@@ -10,6 +10,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @rate_graphs = @user.rate_graphs.map.with_index{|rg, idx| [idx+1, rg.after_rate]}
     @rate_graph = RateGraph.new
+    @rate_graph_comment = RateGraphComment.new
+    @rate_graph_comment.user = @user
+    @rate_graph_comments = RateGraphComment.page(params[:page]).per(5)
   end
 
   def edit
