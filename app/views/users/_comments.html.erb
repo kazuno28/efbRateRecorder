@@ -1,0 +1,4 @@
+<table id="rate_graph_comments_<%= user.id %>">
+    <%= render 'rate_graph_comments/index', user: user, rate_graph_comments: rate_graph_comments %>
+</table>
+<%= paginate rate_graph_comments, remote: true %>

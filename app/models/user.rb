@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   #ActiveStorage
   has_one_attached :image
-  #validate :image_type
+  validate :image_type
 
   #ユーザー名バリデーション
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
@@ -36,7 +36,7 @@ class User < ApplicationRecord
     relationships.find_by(followed_id: user_id).destroy
   end
 
-
+  #含まれているかどうか（フォローしているか）
   def following?(user)
     followings.include?(user)
   end

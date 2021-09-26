@@ -12,8 +12,29 @@ class UsersController < ApplicationController
     @rate_graph = RateGraph.new
     @rate_graph_comment = RateGraphComment.new
     @rate_graph_comment.user = @user
-    @rate_graph_comments = RateGraphComment.page(params[:page]).per(5)
+    @rate_graph_comments = RateGraphComment.where(other_user_id: @user.id).order('updated_at DESC').page(params[:page]).per(5)
+                           #= @user.rate_graph_comment.where(other_user_id: @user.id).~
+    @page = params[:page]
+
   end
+
+   def create
+    @user = User.find(params[:user_id])
+    @rate_graph_comment = RateGraphComment.new(rate_graph_comment_params)
+    @rate_graph_comment.user_id = current_user.id
+    @rate_graph_comment.other_user_id = @user.id
+    @rate_graph_comments = RateGraphComment.where(other_user_id: @user.id).order('updated_at DESC').page(params[:page]).per(5)
+    unless @rate_graph_comment.save!
+      render 'error'
+    end
+   end
+   
+   def destroy
+    @user = User.find(params[:user_id])
+    @rate_graph_comments = RateGraphComment.where(other_user_id: @user.id).order('updated_at DESC').page(params[:page]).per(5)
+    rate_graph_comment = RateGraphComment.where(other_user_id: @user.id).find(params[:id])
+    rate_graph_comment.destroy
+   end
 
   def edit
     @user = User.find(params[:id])
@@ -34,6 +55,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+
+  def rate_graph_comment_params
+    params.require(:rate_graph_comment).permit(:comment)
+  end
 
   def user_params
     params.require(:user).permit(:name, :image)

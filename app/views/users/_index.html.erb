@@ -9,7 +9,13 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td class="text-center"><%= image_tag user.image.variant(resize:"100x100") %></td>
+        <td class="text-center">
+          <% if user.image.attached? %>
+            <%= image_tag user.image.variant(resize:"50x50") %>
+          <% else %>
+            <%= image_tag 'PF-noimagemini.png' %>
+          <% end %>
+        </td>
         <td class="text-center"><%= user.name %></td>
         <td class="text-center"><%= user.followings.count %>フォロー</td>
         <td class="text-center"><%= user.followers.count %>フォロワー</td>

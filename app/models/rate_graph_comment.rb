@@ -5,7 +5,7 @@ class RateGraphComment < ApplicationRecord
   has_many :favorite
 
   #バリデーション
-  validates :rate_graph_comments, presence: true
+  #validates :rate_graph_comment, presence: true
 
   #current_userによっていいねされているか？
   def favorited_by?(current_user)
