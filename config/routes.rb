@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     post '/' => 'users#create', as: 'comments'
-    #delete '/' => 'users#destroy', as: 'comments'
+    delete '/' => 'users#destroy', as: 'comment'
   end
 
   #rate_graphs

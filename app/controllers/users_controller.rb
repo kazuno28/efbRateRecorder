@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     @rate_graph_comment = RateGraphComment.new
     @rate_graph_comment.user = @user
     @rate_graph_comments = RateGraphComment.where(other_user_id: @user.id).order('updated_at DESC').page(params[:page]).per(5)
-                           #= @user.rate_graph_comment.where(other_user_id: @user.id).~
     @page = params[:page]
 
   end
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
       render 'error'
     end
    end
-   
+
    def destroy
     @user = User.find(params[:user_id])
     @rate_graph_comments = RateGraphComment.where(other_user_id: @user.id).order('updated_at DESC').page(params[:page]).per(5)

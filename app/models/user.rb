@@ -57,7 +57,7 @@ class User < ApplicationRecord
   private
 
   def image_type
-    if !image.blob.content_type.in?(%('images/jpeg images/png images/jpg'))
+    if !image.blob.content_type.in?(%('image/jpeg image/png image/jpg'))
       image.purge
       errors.add(:image, 'はJPEGまたはPNG、JPG形式を選択してアップロードしてください')
     end

@@ -15,9 +15,9 @@ class RateGraphCommentsController < ApplicationController
 
   def destroy
     @user = User.find(params[:user_id])
-    @rate_graph_comments = RateGraphComment.where(other_user_id: @user.id).order('updated_at DESC').page(params[:page]).per(5)
-    rate_graph_comment = RateGraphComment.where(other_user_id: @user.id).find(params[:id])
+    rate_graph_comment = RateGraphComment.find(params[:id])
     rate_graph_comment.destroy
+    @rate_graph_comments = RateGraphComment.where(other_user_id: @user.id).order('updated_at DESC').page(params[:page]).per(5)
   end
 
   private

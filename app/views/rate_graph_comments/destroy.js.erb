@@ -1,2 +1,2 @@
-$("#rate_graph_comments_<%= @user.id %>").html("<%= j(render 'rate_graph_comments/index', user: @user, rate_graph_comments: @rate_graph_comments) %>");
+$("#comments_<%= @user.id %>").html("<%= j(render 'users/comments', user: @user, rate_graph_comments: @rate_graph_comments) %>");
 $("#rate_graph_comment_comment").val("");

@@ -4,8 +4,8 @@
   	<td>
   	  <!--ユーザー画像＆名前-->
   		<%= link_to user_path(rate_graph_comment_user), class: "user_#{rate_graph_comment_user.id}" do %>
-  		  <% if user.image.attached? %>
-          <%= image_tag user.image.variant(resize:"50x50") %>
+  		  <% if rate_graph_comment.user.image.attached? %>
+          <%= image_tag rate_graph_comment.user.image.variant(resize:"50x50") %>
         <% else %>
           <%= image_tag 'PF-noimagemini.png' %>
         <% end %><br>
@@ -17,7 +17,7 @@
   	<!--いいね-->
   	<td id="favorite_<%= rate_graph_comment.id %>"><%= render 'favorites/favorite-btn', user: @user, rate_graph_comment: rate_graph_comment %></td>
   	<% if current_user == rate_graph_comment_user %>
-    	<td><%= link_to '削除', user_rate_graph_comment_path(rate_graph_comment.user_id, rate_graph_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
+    	<td><%= link_to '削除', user_rate_graph_comment_path(@user.id, rate_graph_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
   	<% end %>
   </tr>
 <% end %>
