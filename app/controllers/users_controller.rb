@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @rate_graph_comment.user_id = current_user.id
     @rate_graph_comment.other_user_id = @user.id
     @rate_graph_comments = RateGraphComment.where(other_user_id: @user.id).order('updated_at DESC').page(params[:page]).per(5)
-    unless @rate_graph_comment.save!
+    unless @rate_graph_comment.save
       render 'error'
     end
    end
