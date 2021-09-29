@@ -8,7 +8,7 @@
       <%= form_with model:@user, local:true do |f| %>
         <% if @user.errors.any? %>
           <%= @user.errors.count %>errors prohibited this obj from being saved:
-            <ul><%= @user.errors.full_massages.each do |message| %>
+            <ul><%= @user.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             </ul>
           <% end %>

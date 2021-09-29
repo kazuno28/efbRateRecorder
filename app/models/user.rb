@@ -58,7 +58,7 @@ class User < ApplicationRecord
 
   def image_type
 
-    if image.record.created_at.blank?
+    unless image.attached?
       return
     end
 
