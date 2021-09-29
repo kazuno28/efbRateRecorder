@@ -8,7 +8,7 @@
       <%= form_with model:@rate_graph, local:true do |f| %>
         <% if @rate_graph.errors.any? %>
           <%= @rate_graph.errors.count %>errors prohibited this obj from being saved:
-            <ul><%= @rate_graph.errors.full_massages.each do |message| %>
+            <ul><%= @rate_graph.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             </ul>
           <% end %>
