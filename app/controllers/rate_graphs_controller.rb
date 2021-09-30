@@ -3,7 +3,6 @@ class RateGraphsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
 
   def index
-    # @rate_graphs = RateGraph.page(params[:page]).reverse_order
     @rate_graphs = Kaminari.paginate_array(current_user.rate_graphs).page(params[:page])
   end
 
@@ -13,7 +12,6 @@ class RateGraphsController < ApplicationController
     if @rate_graph.save
       redirect_to user_path(current_user), notice: "正常に入力されました。"
     else
-      # @rate_graphs = RateGraph.page(params[:page]).reverse_order
       @rate_graphs = Kaminari.paginate_array(current_user.rate_graphs).page(params[:page])
       render 'index'
     end
