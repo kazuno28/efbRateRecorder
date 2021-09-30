@@ -5,7 +5,7 @@
         <span class="text-white bg-secondary">レート変動一覧</span>
       </h4>
       <!--一覧表-->
-      <% if @rate_graphs.exists? %>
+      <% unless @rate_graphs.count == 0 %>
         <table class='table table-hover table-inverse'>
           <thead class="text-white bg-secondary">
             <th class="text-center">試合No.</th>
@@ -15,9 +15,9 @@
             <th class="text-center"></th>
           </thead>
           <tbody>
-            <% @rate_graphs.each do |rate_graph| %>
+            <% @rate_graphs.each_with_index do |rate_graph,number| %>
             <tr>
-              <td class="text-center"><%= rate_graph.id %></td>
+              <td class="text-center"><%= number+1 %></td>
               <td class="text-center"><%= rate_graph.created_at.strftime("%m/%d %H:%M") %></td>
               <td class="text-center"><%= rate_graph.before_rate %></td>
               <td class="text-center"><%= rate_graph.after_rate %></td>
