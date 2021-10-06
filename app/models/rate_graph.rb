@@ -5,8 +5,8 @@ class RateGraph < ApplicationRecord
 
 
   #試合前レート、試合後レートのバリデーション
-  validates :before_rate, presence: true
-  validates :after_rate, presence: true
+  validates :before_rate, presence: true, numericality: { only_integer: true }
+  validates :after_rate, presence: true, numericality: { only_integer: true }
 
   #グラフ
   def self.chart_date
