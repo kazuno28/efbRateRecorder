@@ -15,11 +15,11 @@
         <% end %>
         <div class="form-group">
           <%= f.label :before_rate, "試合前レート" %>
-          <%= f.text_field :before_rate, autofocus:true, id:"inputBeforeRate" %>
+          <%= f.number_field :before_rate, autofocus:true, required:"required", id:"inputBeforeRate" %>
         </div>
         <div class="form-group">
           <%= f.label :after_rate, "試合後レート"%>
-          <%= f.text_field :after_rate, autofocus:true, id:"inputAfterRate" %>
+          <%= f.number_field :after_rate, autofocus:true, required:"required", id:"inputAfterRate" %>
         </div>
         <div class="form-group">
           <%= f.submit "変更を保存", class: 'btn btn-success' %>

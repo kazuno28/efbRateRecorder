@@ -15,10 +15,14 @@ class RelationshipsController < ApplicationController
   def followings
     user = User.find(params[:user_id])
     @users = user.followings.page(params[:page]).reverse_order
+    #一覧表に名前表示させるよう
+    @user = User.find(params[:user_id])
   end
 
   def followers
     user = User.find(params[:user_id])
     @users = user.followers.page(params[:page]).reverse_order
+    #一覧表に名前表示させるよう
+    @user = User.find(params[:user_id])
   end
 end

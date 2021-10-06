@@ -58,7 +58,7 @@
 
       <!--コメントフォーム-->
       <%= form_with model:[@rate_graph_comment], url: user_comments_path(@user) do |f| %>
-        <%= f.text_area :comment, size:"60x5" %>
+        <%= f.text_area :comment,placeholder: "コメントを入力", size:"60x5" %>
         <%= f.submit '送信'%>
       <% end %>
     </div>

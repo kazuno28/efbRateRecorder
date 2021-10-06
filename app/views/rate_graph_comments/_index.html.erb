@@ -19,5 +19,6 @@
   	<% if current_user == rate_graph_comment_user %>
     	<td><%= link_to '削除', user_rate_graph_comment_path(@user.id, rate_graph_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
   	<% end %>
+  	<td><%= rate_graph_comment.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %></td>
   </tr>
 <% end %>
