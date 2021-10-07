@@ -55,7 +55,7 @@ class User < ApplicationRecord
   end
 
   private
-
+  #画像バリデーション
   def image_type
 
     unless image.attached?
