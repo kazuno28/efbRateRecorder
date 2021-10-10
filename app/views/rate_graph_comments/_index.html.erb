@@ -18,6 +18,8 @@
   	<td id="favorite_<%= rate_graph_comment.id %>"><%= render 'favorites/favorite-btn', user: @user, rate_graph_comment: rate_graph_comment %></td>
   	<% if current_user == rate_graph_comment_user %>
     	<td><%= link_to '削除', user_rate_graph_comment_path(@user.id, rate_graph_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
+    <% else %>
+      <td></td>
   	<% end %>
   	<td><%= rate_graph_comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
   </tr>
