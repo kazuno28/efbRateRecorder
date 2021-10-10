@@ -6,20 +6,22 @@
       </h4>
       <!--エラーメッセージ&編集フォーム-->
       <%= form_with model:@rate_graph, local:true do |f| %>
-        <% if @rate_graph.errors.any? %>
-          <%= @rate_graph.errors.count %>errors prohibited this obj from being saved:
-            <ul><%= @rate_graph.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            </ul>
+        <span class="text-danger">
+          <% if @rate_graph.errors.any? %>
+            <%= @rate_graph.errors.count %>errors prohibited this obj from being saved:
+              <ul><%= @rate_graph.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              </ul>
+            <% end %>
           <% end %>
-        <% end %>
+        </span>
         <div class="form-group">
           <%= f.label :before_rate, "試合前レート" %>
-          <%= f.number_field :before_rate, autofocus:true, required:"required", id:"inputBeforeRate" %>
+          <%= f.number_field :before_rate, autofocus:true, min: 0, max: 9999, required:"required", id:"inputBeforeRate" %>
         </div>
         <div class="form-group">
           <%= f.label :after_rate, "試合後レート"%>
-          <%= f.number_field :after_rate, autofocus:true, required:"required", id:"inputAfterRate" %>
+          <%= f.number_field :after_rate, autofocus:true, min: 0, max: 9999, required:"required", id:"inputAfterRate" %>
         </div>
         <div class="form-group">
           <%= f.submit "変更を保存", class: 'btn btn-success' %>
