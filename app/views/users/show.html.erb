@@ -4,7 +4,7 @@
       <!--current_userと他のユーザーで分岐-->
       <% if current_user != @user %>
         <h4>
-          <span class="text-white bg-secondary">プロフィール</span>
+          <span class="text-white bg-secondary"><%= @user.name %>さんのプロフィール</span>
         </h4>
       <% else %>
         <h4>
