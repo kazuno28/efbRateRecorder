@@ -32,6 +32,9 @@
         <% end %>
         <!--データ入力フォーム-->
         <%= form_with model: @rate_graph, url: rate_graphs_path, method: :post, local:true do |f| %>
+          <span class="text-white bg-secondary">
+            レート入力フォーム
+          </span>
           <div class="form-group">
             <span class="text-white bg-secondary">
               <%= f.label :before_rate, "試合前レート" %>
@@ -46,7 +49,7 @@
          </div>
         <% end %>
         <!--レート変動一覧　リンク-->
-        <p>データを編集したい場合は、<%= link_to "レート変動一覧", rate_graphs_path %>から編集してください。</p>
+        <u>データを編集したい場合は、<%= link_to "レート変動一覧", rate_graphs_path %>から編集してください。</u>
       <% end %>
       <!--コメント表-->
 
