@@ -54,6 +54,7 @@
       <!--コメント表-->
 
       <div id="comments_<%= @user.id %>">
+        <span class="text-white bg-secondary">コメント</span>
         <%= render 'comments', user: @user, rate_graph_comments: @rate_graph_comments %>
       </div>
 
