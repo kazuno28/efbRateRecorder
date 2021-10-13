@@ -16,7 +16,7 @@
     </div>
     <div class="col-md-9">
       <!--グラフ表示-->
-      <p class="text-danger">※試合数が少ない段階だと小数点が表示されてしまいますが仕様によるものなのでご了承ください。</p>
+      <p class="text-danger small">※試合数が少ない段階だと小数点が表示されてしまいますが仕様によるものなのでご了承ください。</p>
       <%= line_chart @rate_graphs, xtitle: "試合数", ytitle: "レート", width: "550px", height: "300px", curve: false, empty: "データがありません。データを追加することで表示されます。" %>
 
       <% if current_user != @user %>
@@ -52,10 +52,11 @@
         <u>データを編集したい場合は、<%= link_to "レート変動一覧", rate_graphs_path %>から編集してください。</u>
       <% end %>
       <!--コメント表-->
-
-      <div id="comments_<%= @user.id %>">
+      <div>
         <span class="text-white bg-secondary">コメント</span>
-        <%= render 'comments', user: @user, rate_graph_comments: @rate_graph_comments %>
+        <div id="comments_<%= @user.id %>">
+          <%= render 'comments', user: @user, rate_graph_comments: @rate_graph_comments %>
+        </div>
       </div>
 
       <!--コメントフォーム-->
