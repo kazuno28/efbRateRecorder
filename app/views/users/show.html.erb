@@ -36,11 +36,11 @@
             レート入力フォーム
           </span>
           <div class="form-group">
-            <span class="text-white bg-secondary">
+            <span class="text-white bg-dark small">
               <%= f.label :before_rate, "試合前レート" %>
             </span>
               <%= f.number_field :before_rate, min: 0, max: 9999,placeholder: "0~9999" %>
-            <span class="text-white bg-secondary">
+            <span class="text-white bg-dark small">
               <%= f.label :after_rate, "試合後レート" %>
             </span>
               <%= f.number_field :after_rate, min: 0, max: 9999,placeholder: "0~9999" %>
