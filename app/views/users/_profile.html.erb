@@ -7,15 +7,15 @@
     <% end %>
   </tr>
   <tr>
-    <th class="small">ユーザー名 :</th>
+    <th>ユーザー名 :</th>
     <th><%= user.name %></th>
   </tr>
   <tr>
-    <th class="small">フォロー :</th>
+    <th>フォロー :</th>
     <th><%= link_to user.followings.count, user_followings_path(user) %></th>
   </tr>
   <tr>
-    <th class="small">フォロワー :</th>
+    <th>フォロワー :</th>
     <th><%= link_to user.followers.count, user_followers_path(user) %></th>
   </tr>
 </table>

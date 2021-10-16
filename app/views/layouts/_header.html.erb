@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
         　<!--ログインしているとき-->
-          <li class="text-warning">ようこそ、<%= current_user.name %>さん！</li>
+          <li class="text-warning font-weight-bold">ようこそ、<%= current_user.name %>さん！</li>
 
           <li><%= link_to 'マイページ',user_path(current_user), class: 'fas fa-users nav-link text-warning' %></li>
           <li><%= link_to 'ユーザー一覧', users_path, class: 'fas fa-users nav-link text-warning' %></li>
