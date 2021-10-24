@@ -4,11 +4,11 @@
       <!--current_userと他のユーザーで分岐-->
       <% if current_user != @user %>
         <h4>
-          <span class="text-white bg-secondary"><%= @user.name %>さんのプロフィール</span>
+          <span class="text-white bg-secondary font-weight-bold"><%= @user.name %>さんのプロフィール</span>
         </h4>
       <% else %>
         <h4>
-          <span class="text-white bg-secondary">マイページ</span>
+          <span class="text-white bg-secondary font-weight-bold">マイページ</span>
         </h4>
       <% end %>
       <!--プロフィール-->
@@ -36,11 +36,11 @@
             レート入力フォーム
           </span>
           <div class="form-group">
-            <span class="text-secondary small">
+            <span class="text-secondary small font-weight-bold">
               <%= f.label :before_rate, "試合前レート:" %>
             </span>
               <%= f.number_field :before_rate, min: 0, max: 9999,placeholder: "0~9999" %>
-            <span class="text-secondary small">
+            <span class="text-secondary small font-weight-bold">
               <%= f.label :after_rate, "試合後レート:" %>
             </span>
               <%= f.number_field :after_rate, min: 0, max: 9999,placeholder: "0~9999" %>
