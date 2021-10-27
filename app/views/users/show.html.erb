@@ -32,7 +32,7 @@
         <% end %>
         <!--データ入力フォーム-->
         <%= form_with model: @rate_graph, url: rate_graphs_path, method: :post, local:true do |f| %>
-          <span class="text-white bg-secondary">
+          <span class="text-white bg-secondary fas fa-chart-line">
             レート入力フォーム
           </span>
           <div class="form-group">
@@ -53,7 +53,7 @@
       <% end %>
       <!--コメント表-->
       <div>
-        <span class="text-white bg-secondary">コメント</span>
+        <span class="text-white bg-secondary fas fa-comment">コメント</span>
         <div id="comments_<%= @user.id %>">
           <%= render 'comments', user: @user, rate_graph_comments: @rate_graph_comments %>
         </div>
