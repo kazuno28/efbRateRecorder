@@ -16,9 +16,9 @@
             <%= image_tag 'PF-noimagemini.png' %>
           <% end %>
         </td>
-        <td class="text-center"><%= user.name %></td>
-        <td class="text-center"><%= user.followings.count %>フォロー</td>
-        <td class="text-center"><%= user.followers.count %>フォロワー</td>
+        <td class="text-center font-weight-bold"><%= user.name %></td>
+        <td class="text-center font-weight-bold"><%= user.followings.count %>フォロー</td>
+        <td class="text-center font-weight-bold"><%= user.followers.count %>フォロワー</td>
         <td class="text-center">
           <% if current_user != user %>
             <% if current_user.following?(user) %>

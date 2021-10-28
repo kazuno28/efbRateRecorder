@@ -18,9 +18,9 @@
             <% @rate_graphs.each_with_index do |rate_graph,number| %>
             <tr>
               <td class="text-center"><%= number+1 %></td>
-              <td class="text-center"><%= rate_graph.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-              <td class="text-center"><%= rate_graph.before_rate %></td>
-              <td class="text-center"><%= rate_graph.after_rate %></td>
+              <td class="text-center font-weight-bold"><%= rate_graph.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+              <td class="text-center font-weight-bold"><%= rate_graph.before_rate %></td>
+              <td class="text-center font-weight-bold"><%= rate_graph.after_rate %></td>
               <td class="text-center"><%= link_to "編集する", edit_rate_graph_path(rate_graph), class: "btn btn-success" %></td>
             </tr>
             <% end %>
